@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Trucos de la consola 🧙🏽‍♀️</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×CLICK×AQUÍ×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'Hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('¡Hola!');
+
+    // Interpolated
+    console.log('Hola, soy un %s string.', '😎');
+
+    // Estilos
+    console.log('%c Hola, soy un texto genial.', 'font-size: 25px; background: red;');
+
+    // Advertencia
+    console.warn('¡OH, NO!');
+
+    // Error
+    console.error('¡Lpm!');
+
+    // Info
+    console.info('Si te tapás la nariz, no podés hacer mmmmm. 😂');
+
+    // Testing
+    console.assert(1 === 2, 'Eso no es correcto.');
+
+    // Limpiar
+    console.clear();
+
+    // Ver elementos del DOM
+    const p = document.querySelector('p');
+    console.dir(p);
+
+    // Agrupar
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`Su nombre es ${dog.name}`);
+      console.log(`${dog.name} tiene ${dog.age} años`);
+      console.log(`${dog.name} tiene ${dog.age  * 7} años perrunos`);
+      console.groupEnd(`${dog.name}`);
+    });
+
+    // Contar
+    // Por ejemplo, cuántas veces se usa una palabra.
+    console.count('Hola');
+    console.count('Hola');
+    console.count('Hola');
+    console.count('Hola');
+    console.count('Hola');
+
+    // Tiempo
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      })
+  </script>
+</body>
+</html>
