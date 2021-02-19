@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detección de teclas 🕵🏽‍♀️</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body >
+<script>
+  const pressed = [];
+  const secretCode = 'ar';
+
+  window.addEventListener('keyup', (e) => {
+    pressed.push(e.key);
+    pressed.splice(-secretCode.length -1, pressed.length - secretCode.length);
+
+    if (pressed.join('').includes(secretCode)) { 
+      cornify_add();
+    }
+  });
+</script>
+</body>
+</html>
