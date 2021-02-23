@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Referencia VS Copia en JavaScript</title>
+</head>
+<body>
+
+  <script>
+        // Empecemos con strings, números y booleanos
+        let age = 100;
+    let age2 = age;
+    console.log(age, age2);
+    age = 200;
+    console.log(age, age2);
+
+    let name = 'Wes';
+    let name2 = name;
+    console.log(name, name2);
+    name = 'Wesley';
+    console.log(name, name2);
+
+    // Tenemos una matriz
+    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+    // y queremos hacer una copia de ella.
+    const team = players;
+
+
+    // Podés pensar que podemos hacer algo como esto:
+    team[3] = 'Lux';
+
+    // Sin embargo, ¿qué pasa si actualizamos esa matriz?
+
+    // ¡Acá está el problema!
+
+    // ¡Editamos la matriz original también!
+
+    // ¿Por qué? Esto es porque es una referencia a la matriz, no una copia. Ambas apuntan a la misma matriz.
+
+    // Entonces, ¿cómo podemos arreglar esto? ¡Tomamos una copia!
+    const team2 = players.slice();
+    // Esa es una manera.
+
+    // O, crear una nueva matriz y concatenar la anterior.
+    const team3 = [].concat(players);
+
+    // O usar el ES6 Spread
+    const team4 = [...players];
+    const team5 = Array.from(players);
+
+    // Ahora, cuando la actualizamos, la original no cambia.
+
+    // Lo mismo ocurre con los objetos. Digamos que tenemos el objeto person
+
+    const person = {
+      name: 'Wes Bos',
+      age: 80
+    };
+
+    // y creemos que hicimos una copia:
+    const captain = person;
+    captain.number = 99;
+
+    // ¿Cómo tomamos una copia?
+    const cap2 = Object.assign({}, person, { number: 99, age: 12});
+    console.log(cap2);
+
+    // Con suerte, pronto veremos el object ...spread
+    //const cap3 = {...person};
+
+    // Cosas a tener en cuenta: esto es solo 1 nivel de profundidad, tanto para matrices como para objetos.
+    // lodash tiene un método cloneDeep, pero debés pensarlo dos veces antes de usarlo.
+    const wes = {
+        name: 'Wes',
+        age: 100,
+        social: {
+            twitter: '@wesbos',
+            facebook: 'wesbos.developer'
+        }
+    }
+
+    const dev = Object.assign({}, wes)
+
+  </script>
+
+</body>
+</html>
