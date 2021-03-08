@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cuenta regresiva</title>
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="timer">
+    <div class="timer__controls">
+      <button data-time="20" class="timer__button">20 s</button>
+      <button data-time="300" class="timer__button">5 min</button>
+      <button data-time="900" class="timer__button">15 min</button>
+      <button data-time="1200" class="timer__button">20 min</button>
+      <button data-time="3600" class="timer__button">1 hora</button>
+      <form name="customForm" id="custom">
+        <input type="text" name="minutes" placeholder="Ingresar minutos">
+      </form>
+    </div>
+    <div class="display">
+      <h1 class="display__time-left"></h1>
+      <p class="display__end-time"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
